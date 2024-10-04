@@ -17,7 +17,7 @@ class Prestashop {
             }
             // <8
             if (is_file($root."/app/AppKernel.php")) {
-                $f=fopen($root."/ecrire/inc_version.php","rb");
+                $f=fopen($root."/app/AppKernel.php","rb");
                 if (!$f) return false;
                 while($s=fgets($f,1024)) {
                     if (preg_match('#const VERSION\s*=\s*[\'"](.*)[\'"];#',$s,$mat)) { 
@@ -27,6 +27,19 @@ class Prestashop {
                 }
                 fclose($f);
             }
+            // VERY old ~1.6.1.9
+            if (is_file($root."/install/install_version.php")) {
+                $f=fopen($root."/install/install_version.php","rb");
+                if (!$f) return false;
+                while($s=fgets($f,1024)) {
+                    if (preg_match('#define\(\'_PS_INSTALL_VERSION_\',\s*[\'"](.*)[\'"]\);#',$s,$mat)) { 
+                        fclose($f);
+                        return $mat[1];
+                    }
+                }
+                fclose($f);                
+            }
+
         }
         return false;
     } // search 
