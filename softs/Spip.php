@@ -13,6 +13,7 @@ class Spip {
               if (!$f) return false;
               while($s=fgets($f,1024)) {
                   if (preg_match('#\$spip_version_branche\s+=\s+[\'"](.*)[\'"];#',$s,$mat)) { 
+                      fclose($f);
                       return $mat[1];
                   }
               }

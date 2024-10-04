@@ -8,14 +8,16 @@ class Dolibarr {
      */ 
     function search($root) {
 
-        if (is_file($root."/filefunc.inc.php") && is_dir($root."/install")) {
+        if (is_file($root."/filefunc.inc.php") && is_dir($root."/public")) {
             $f=fopen($root."/filefunc.inc.php","rb");
             if (!$f) return false;
-            $s=fgets($f,1024);
-            fclose($f);
-            if (preg_match('#define\([\'"]DOL_VERSION[\'"]\s*,\s*[\'"]([^\'"]+)[\'"]\);#',$s,$mat)) { 
-                return $mat[1];
+            while($s=fgets($f,1024)) {
+                if (preg_match('#define.[\'"]DOL_VERSION[\'"]\s*,\s*[\'"]([^\'"]+)[\'"]#',$s,$mat)) { 
+                    fclose($f);
+                    return $mat[1];
+                }
             }
+            fclose($f);
             return false;
         } else {
             return false;
