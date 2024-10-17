@@ -7,7 +7,8 @@ class Nextcloud {
      * if this class think that a nextcloud is here, returns the version number, normalized.
      */ 
     function search($root) {
-
+        // skip update folder of nextcloud: they are enclosed in a data folder.
+        if (strpos("/updater-oc",$root)!==false) return false;
         if (is_file($root."/remote.php") && is_dir($root."/ocs") && is_dir($root."/core") && is_file($root."/version.php")) {
             $f=fopen($root."/version.php","rb");
             if (!$f) return false;
