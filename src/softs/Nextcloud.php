@@ -8,7 +8,7 @@ class Nextcloud {
      */ 
     function search($root) {
         // skip update folder of nextcloud: they are enclosed in a data folder.
-        if (strpos("/updater-oc",$root)!==false) return false;
+        if (strpos($root,"/updater-oc")!==false) return false;
         if (is_file($root."/remote.php") && is_dir($root."/ocs") && is_dir($root."/core") && is_file($root."/version.php")) {
             $f=fopen($root."/version.php","rb");
             if (!$f) return false;

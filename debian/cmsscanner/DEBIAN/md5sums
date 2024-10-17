@@ -3,7 +3,7 @@ abd1018a324b68199dbc4eed9516f396  usr/lib/cmsscanner/softs/Dokuwiki.php
 64ee7d776d6fdc2c9693717718e2f6e2  usr/lib/cmsscanner/softs/Dolibarr.php
 71fe98bb44c891dde2b7e982e23dab86  usr/lib/cmsscanner/softs/Drupal.php
 81d6c1fe5a729d2a1d17417b1ea7b843  usr/lib/cmsscanner/softs/Joomla.php
-5c5457151ce5e30238455940ba721baf  usr/lib/cmsscanner/softs/Nextcloud.php
+06c86d7be36aa2fbcce1ff672910dc20  usr/lib/cmsscanner/softs/Nextcloud.php
 c08e4914c9a33128d85e881982edbd05  usr/lib/cmsscanner/softs/Phpmyadmin.php
 0270b2e1ae57b635d6aac709f3600f67  usr/lib/cmsscanner/softs/Prestashop.php
 83b6e189cdef607e533e2ed5d10058d8  usr/lib/cmsscanner/softs/Roundcube.php
