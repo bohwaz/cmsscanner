@@ -1,0 +1,6 @@
+cmsscanner (0.1) stable; urgency=low
+
+  * Initial project: scan folders and subfolders for a known CMS
+
+ -- Benjamin Sonntag <benjamin@sonntag.fr>  Wed, 16 Oct 2024 15:48:00 +0200
+

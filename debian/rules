@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE = 1
+
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+	ln -s /usr/lib/cmsscanner/scanner.php $(CURDIR)/debian/cmsscanner/usr/bin/cmsscanner
+	chmod a+x $(CURDIR)/debian/cmsscanner/usr/lib/cmsscanner/scanner.php
+

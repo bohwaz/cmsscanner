@@ -1,0 +1,15 @@
+Source: cmsscanner
+Section: admin
+Priority: optional
+Maintainer: Benjamin Sonntag <benjamin@sonntag.fr>
+Build-Depends: debhelper (>= 12),
+               devscripts
+Standards-Version: 4.3.0
+
+Package: cmsscanner
+Architecture: all
+Depends: php-cli
+Description: Scan CMS hosted on a server
+ This package scan a folder and its subfolder
+ and search for known PHP applications there.
+ it echoes the list of detected programs and their version.

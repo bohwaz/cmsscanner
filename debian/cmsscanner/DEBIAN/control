@@ -1,0 +1,12 @@
+Package: cmsscanner
+Version: 0.1
+Architecture: all
+Maintainer: Benjamin Sonntag <benjamin@sonntag.fr>
+Installed-Size: 32
+Depends: php-cli
+Section: admin
+Priority: optional
+Description: Scan CMS hosted on a server
+ This package scan a folder and its subfolder
+ and search for known PHP applications there.
+ it echoes the list of detected programs and their version.

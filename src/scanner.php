@@ -1,26 +1,27 @@
+#!/usr/bin/php
 <?php
 
 // scan a root folder and all its subfolders for softwares.
 // each known software has its own function that we launch to detect it.
 // the function returns the detected version of the software.
-// then we should check, using the software-checksum-service, that this software's version is unchanged.
+// (then we could check, using the software-checksum-service, that this software version's files are unchanged.)
 
 if (!isset($argv[1])) {
    echo "Usage: scanner.php <root path>\n";
    exit();
 }
 
-$root=$argv[1];
+$root=realpath($argv[1]);
 
-if (!is_dir($root)) {
-    echo "Fatal: $root is not a directory\n";
+if (!$root || !is_dir($root)) {
+    echo "FATAL: $root is not a directory or can't be opened\n";
 }
 
 $t=stat($root);
 $fs=$t["dev"]; // we don't cross filesystems.
 
-$d=opendir(__DIR__."/softs");
-if (!$d) die("Can't open softs/ folder !");
+$d=@opendir(__DIR__."/softs");
+if (!$d) die("FATAL: Can't open softs/ folder in the code.");
 while (($c=readdir($d))!==false) {
     if (substr($c,-4)==".php") {
         require_once(__DIR__."/softs/".$c);
@@ -40,9 +41,9 @@ function scanner($root,$level=0) {
             echo "$class $version $root\n";
         }
     }
-    $d=opendir($root);
+    $d=@opendir($root);
     if (!$d) {
-        echo "Can't open folder $root ...\n";
+        echo "ERROR: Can't open folder $root (deleted or permission denied)\n";
         return;
     }
     $root=rtrim($root,"/");
