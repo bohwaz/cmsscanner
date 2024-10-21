@@ -1,3 +1,9 @@
+cmsscanner (0.1.2) buster bullseye bookworm; urgency=low
+
+  * fix: little bug in Drupal.php
+
+ -- Benjamin Sonntag <benjamin@sonntag.fr>  Mon, 21 Oct 2024 20:46:00 +0200
+
 cmsscanner (0.1.1) buster bullseye bookworm; urgency=low
 
   * Set available package from buster to bookworm

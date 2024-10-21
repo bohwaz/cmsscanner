@@ -23,7 +23,7 @@ class Drupal {
                 fclose($f);
             }
             // 8/9/10
-            if (is_file($root."/composer.lock") && file_size($root."/composer.lock")<1048576) {
+            if (is_file($root."/composer.lock") && filesize($root."/composer.lock")<1048576) {
                 $f=json_decode(file_get_contents($root."/composer.lock"),true);
                 if (!$f) return false;
                 foreach($f["packages"] as $one) {
