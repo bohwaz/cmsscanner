@@ -1,3 +1,9 @@
+cmsscanner (0.1.1) buster bullseye bookworm; urgency=low
+
+  * Set available package from buster to bookworm
+
+ -- Camille Lafitte <camille@octopuce.fr>  Mon, 21 Oct 2024 17:00:00 +0200
+
 cmsscanner (0.1) stable; urgency=low
 
   * Initial project: scan folders and subfolders for a known CMS
